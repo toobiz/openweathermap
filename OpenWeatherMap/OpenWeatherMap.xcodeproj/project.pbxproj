@@ -14,6 +14,8 @@
 		BC2FCF332741C5DB003FAF07 /* NetworkConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2FCF322741C5DB003FAF07 /* NetworkConnector.swift */; };
 		BC2FCF352741C607003FAF07 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2FCF342741C607003FAF07 /* ApiError.swift */; };
 		BC2FCF382741C6B0003FAF07 /* Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2FCF372741C6B0003FAF07 /* Parsing.swift */; };
+		BC2FCF3B2742E303003FAF07 /* CurrentWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2FCF3A2742E303003FAF07 /* CurrentWeatherView.swift */; };
+		BC2FCF3D2742E4AC003FAF07 /* CurrentWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2FCF3C2742E4AC003FAF07 /* CurrentWeatherViewModel.swift */; };
 		BCD0F29D2741B0380089CC2B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0F29C2741B0380089CC2B /* SceneDelegate.swift */; };
 		BCD0F29F2741B0380089CC2B /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD0F29E2741B0380089CC2B /* SearchView.swift */; };
 		BCD0F2A42741B0380089CC2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCD0F2A32741B0380089CC2B /* Assets.xcassets */; };
@@ -28,6 +30,8 @@
 		BC2FCF322741C5DB003FAF07 /* NetworkConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConnector.swift; sourceTree = "<group>"; };
 		BC2FCF342741C607003FAF07 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		BC2FCF372741C6B0003FAF07 /* Parsing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parsing.swift; sourceTree = "<group>"; };
+		BC2FCF3A2742E303003FAF07 /* CurrentWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherView.swift; sourceTree = "<group>"; };
+		BC2FCF3C2742E4AC003FAF07 /* CurrentWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherViewModel.swift; sourceTree = "<group>"; };
 		BCD0F2972741B0380089CC2B /* OpenWeatherMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenWeatherMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCD0F29C2741B0380089CC2B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BCD0F29E2741B0380089CC2B /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
@@ -51,6 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				BC2FCF272741B8A3003FAF07 /* Search */,
+				BC2FCF392742E2D4003FAF07 /* CurrentWeather */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -88,6 +93,15 @@
 				BC2FCF372741C6B0003FAF07 /* Parsing.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		BC2FCF392742E2D4003FAF07 /* CurrentWeather */ = {
+			isa = PBXGroup;
+			children = (
+				BC2FCF3A2742E303003FAF07 /* CurrentWeatherView.swift */,
+				BC2FCF3C2742E4AC003FAF07 /* CurrentWeatherViewModel.swift */,
+			);
+			path = CurrentWeather;
 			sourceTree = "<group>";
 		};
 		BCD0F28E2741B0380089CC2B = {
@@ -203,12 +217,14 @@
 				BC2FCF252741B77F003FAF07 /* AppDelegate.swift in Sources */,
 				BC2FCF382741C6B0003FAF07 /* Parsing.swift in Sources */,
 				BC2FCF2F2741C58A003FAF07 /* CurrentWeather.swift in Sources */,
+				BC2FCF3B2742E303003FAF07 /* CurrentWeatherView.swift in Sources */,
 				BC2FCF312741C5CC003FAF07 /* ApiRepositoryProtocol.swift in Sources */,
 				BC2FCF332741C5DB003FAF07 /* NetworkConnector.swift in Sources */,
 				BCD0F29F2741B0380089CC2B /* SearchView.swift in Sources */,
 				BC2FCF352741C607003FAF07 /* ApiError.swift in Sources */,
 				BC2FCF292741C013003FAF07 /* SearchViewModel.swift in Sources */,
 				BCD0F29D2741B0380089CC2B /* SceneDelegate.swift in Sources */,
+				BC2FCF3D2742E4AC003FAF07 /* CurrentWeatherViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

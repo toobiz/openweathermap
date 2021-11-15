@@ -24,7 +24,7 @@ struct SearchView: View {
           }
         }
         .listStyle(GroupedListStyle())
-        .navigationBarTitle("OpenWeather", displayMode: .inline)
+        .navigationBarTitle("OpenWeatherMap", displayMode: .inline)
       }
     }
     
@@ -36,14 +36,14 @@ struct SearchView: View {
     
     var currentWeatherSection: some View {
       Section {
-//        NavigationLink(destination: currentWeather) {
+        NavigationLink(destination: currentWeatherView) {
           VStack(alignment: .leading) {
             Text(viewModel.city)
             Text("Aktualna pogoda")
               .font(.caption)
               .foregroundColor(.gray)
           }
-//        }
+        }
 //        NavigationLink(destination: forecast) {
           VStack(alignment: .leading) {
             Text(viewModel.city)
@@ -53,6 +53,13 @@ struct SearchView: View {
           }
 //        }
       }
+    }
+}
+
+extension SearchView {
+    var currentWeatherView: some View {
+        let viewModel = CurrentWeatherViewModel(datasource: viewModel.dataSource)
+        return CurrentWeatherView(viewModel: viewModel)
     }
 }
 
