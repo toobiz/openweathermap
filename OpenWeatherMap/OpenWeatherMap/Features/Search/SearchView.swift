@@ -9,11 +9,7 @@ import UIKit
 import SwiftUI
 
 struct SearchView: View {
-    @ObservedObject var viewModel: SearchViewModel
-
-    init(viewModel: SearchViewModel) {
-      self.viewModel = viewModel
-    }
+    @ObservedObject var viewModel = SearchViewModel()
     
     var body: some View {
       NavigationView {
@@ -36,7 +32,7 @@ struct SearchView: View {
     
     var currentWeatherSection: some View {
       Section {
-        NavigationLink(destination: currentWeatherView) {
+        NavigationLink(destination: viewModel.currentWeatherView) {
           VStack(alignment: .leading) {
             Text(viewModel.city)
             Text("Aktualna pogoda")
@@ -44,7 +40,7 @@ struct SearchView: View {
               .foregroundColor(.gray)
           }
         }
-        NavigationLink(destination: forecastView) {
+        NavigationLink(destination: viewModel.forecastView) {
           VStack(alignment: .leading) {
             Text(viewModel.city)
             Text("Prognoza pogody")
@@ -55,17 +51,3 @@ struct SearchView: View {
       }
     }
 }
-
-extension SearchView {
-  var currentWeatherView: some View {
-    let viewModel = CurrentWeatherViewModel(datasource: viewModel.dataSource)
-    return CurrentWeatherView(viewModel: viewModel)
-  }
-  
-  var forecastView: some View {
-    let networkConnector = NetworkConnector()
-    let viewModel = ForecastViewModel(city: viewModel.city, apiRepository: ApiRepository(networkConnector: networkConnector))
-    return ForecastView(viewModel: viewModel)
-  }
-}
-

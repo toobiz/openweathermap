@@ -13,11 +13,10 @@ class SearchViewModel: ObservableObject, Identifiable {
   @Published var city: String = ""
   @Published var dataSource: CurrentWeather?
 
-  private let apiRepository: ApiRepositoryProtocol
+  private let apiRepository = ApiRepository()
   private var disposables = Set<AnyCancellable>()
 
-  init(apiRepository: ApiRepositoryProtocol, scheduler: DispatchQueue = DispatchQueue(label: "WeatherViewModel")) {
-    self.apiRepository = apiRepository
+  init(scheduler: DispatchQueue = DispatchQueue(label: "WeatherViewModel")) {
     
     $city
       .dropFirst(1)
@@ -41,5 +40,17 @@ class SearchViewModel: ObservableObject, Identifiable {
               self.dataSource = value
         })
         .store(in: &disposables)
+  }
+}
+
+extension SearchViewModel {
+  var currentWeatherView: some View {
+    let viewModel = CurrentWeatherViewModel(datasource: dataSource)
+    return CurrentWeatherView(viewModel: viewModel)
+  }
+  
+  var forecastView: some View {
+    let viewModel = ForecastViewModel(city: city)
+    return ForecastView(viewModel: viewModel)
   }
 }

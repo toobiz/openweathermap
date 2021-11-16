@@ -15,13 +15,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = scene as? UIWindowScene else { return }
 
-        let networkConnector = NetworkConnector()
-        let apiRepository = ApiRepository(networkConnector: networkConnector)
-        let viewModel = SearchViewModel(apiRepository: apiRepository)
-        let view = SearchView(viewModel: viewModel)
+        let searchView = SearchView()
 
         let window = UIWindow(windowScene: scene)
-        window.rootViewController = UIHostingController(rootView: view)
+        window.rootViewController = UIHostingController(rootView: searchView)
         window.makeKeyAndVisible()
         self.window = window
     }

@@ -14,16 +14,12 @@ protocol ApiRepositoryProtocol {
 }
 
 class ApiRepository: ApiRepositoryProtocol {
-  private let networkConnector: NetworkConnector
+  private let networkConnector = NetworkConnector()
   
   private let apiKey = "cbaad4e703689328bb4891bcfa6363b1"
   private let weatherEndpoint = "/weather"
   private let forecastEndpoint = "/forecast"
-  
-  init(networkConnector: NetworkConnector) {
-    self.networkConnector = networkConnector
-  }
-  
+    
   func fetchCurrentWeather(forCity city: String) -> AnyPublisher<CurrentWeather, ApiError> {
     return networkConnector.performTask(with: URLComponentsFor(city: city, endpoint: weatherEndpoint))
   }

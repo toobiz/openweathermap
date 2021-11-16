@@ -13,11 +13,10 @@ class ForecastViewModel: ObservableObject, Identifiable {
   @Published var city: String
   @Published var dataSource: [ForecastRowViewModel] = []
 
-  private let apiRepository: ApiRepositoryProtocol
+  private let apiRepository = ApiRepository()
   private var disposables = Set<AnyCancellable>()
   
-  init(city: String, apiRepository: ApiRepositoryProtocol) {
-    self.apiRepository = apiRepository
+  init(city: String) {
     self.city = city
   }
   
