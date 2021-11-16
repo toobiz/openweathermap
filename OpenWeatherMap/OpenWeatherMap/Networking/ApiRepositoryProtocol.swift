@@ -10,6 +10,7 @@ import Combine
 
 protocol ApiRepositoryProtocol {
   func fetchCurrentWeather(forCity city: String) -> AnyPublisher<CurrentWeather, ApiError>
+  func fetchForecast(forCity city: String) -> AnyPublisher<Forecast, ApiError>
 }
 
 class ApiRepository: ApiRepositoryProtocol {
@@ -25,6 +26,10 @@ class ApiRepository: ApiRepositoryProtocol {
   
   func fetchCurrentWeather(forCity city: String) -> AnyPublisher<CurrentWeather, ApiError> {
     return networkConnector.performTask(with: URLComponentsFor(city: city, endpoint: weatherEndpoint))
+  }
+  
+  func fetchForecast(forCity city: String) -> AnyPublisher<Forecast, ApiError> {
+    return networkConnector.performTask(with: URLComponentsFor(city: city, endpoint: forecastEndpoint))
   }
     
   private func URLComponentsFor(city: String, endpoint: String) -> URLComponents {

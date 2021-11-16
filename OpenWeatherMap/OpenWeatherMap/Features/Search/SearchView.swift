@@ -44,22 +44,28 @@ struct SearchView: View {
               .foregroundColor(.gray)
           }
         }
-//        NavigationLink(destination: forecast) {
+        NavigationLink(destination: forecastView) {
           VStack(alignment: .leading) {
             Text(viewModel.city)
             Text("Prognoza pogody")
               .font(.caption)
               .foregroundColor(.gray)
           }
-//        }
+        }
       }
     }
 }
 
 extension SearchView {
-    var currentWeatherView: some View {
-        let viewModel = CurrentWeatherViewModel(datasource: viewModel.dataSource)
-        return CurrentWeatherView(viewModel: viewModel)
-    }
+  var currentWeatherView: some View {
+    let viewModel = CurrentWeatherViewModel(datasource: viewModel.dataSource)
+    return CurrentWeatherView(viewModel: viewModel)
+  }
+  
+  var forecastView: some View {
+    let networkConnector = NetworkConnector()
+    let viewModel = ForecastViewModel(city: viewModel.city, apiRepository: ApiRepository(networkConnector: networkConnector))
+    return ForecastView(viewModel: viewModel)
+  }
 }
 

@@ -20,7 +20,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let viewModel = SearchViewModel(apiRepository: apiRepository)
         let view = SearchView(viewModel: viewModel)
 
-        // Use a UIHostingController as window root view controller
         let window = UIWindow(windowScene: scene)
         window.rootViewController = UIHostingController(rootView: view)
         window.makeKeyAndVisible()
